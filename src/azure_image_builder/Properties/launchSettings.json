@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "azure_image_builder": {
+      "commandName": "Project",
+      "commandLineArgs": "help execute"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+name: azure_image_builder
+promotion: Simple
+version: Manual
+id: azure_image_builder
+description: A description of some sorts
+organization: Clinical Network
+product-suite: Tools
+product: Release Engineering
+
+repository:
+  url: https://github.relayhealth.com/tools/azure_image_builder.git

@@ -1,0 +1,45 @@
+<Project>
+    <PropertyGroup>
+        <Copyright>Copyright 2018 Change Healthcare and/or one of its subsidiaries. All rights reserved.</Copyright>
+        <PackageLicenseUrl>https://github.relayhealth.com/Tools/azure_image_builder/blob/master/LICENSE</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.relayhealth.com/Tools/azure_image_builder</PackageProjectUrl>
+        <RepositoryUrl>https://github.relayhealth.com/Tools/azure_image_builder</RepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <IncludeSource>true</IncludeSource>
+        <IncludeBuildOutput>true</IncludeBuildOutput>
+        <IncludeContentInPack>false</IncludeContentInPack>
+        <IncludeContentInPack>false</IncludeContentInPack>
+        <Authors>Change Healthcare</Authors>
+        <Company>Change Healthcare</Company>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <WarningsAsErrors />
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);1591</NoWarn>
+        <RepositoryType>git</RepositoryType>
+        <NeutralLanguage>en-US</NeutralLanguage>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.AzureKeyVault" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.0.0" />
+        <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.0" />
+        <PackageReference Include="Microsoft.Azure.KeyVault.Extensions" Version="3.0.0" />
+        <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
+        <PackageReference Include="Humanizer" Version="2.4.2" />
+    </ItemGroup>
+</Project>
