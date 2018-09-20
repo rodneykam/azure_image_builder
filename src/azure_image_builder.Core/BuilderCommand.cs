@@ -19,7 +19,7 @@ namespace azure_image_builder.Core
         /// <param name="options">The options to run the command</param>
         public BuilderCommand(ILoggerFactory loggerFactory, IOptions<BuilderOptions> options)
         {
-            Logger = loggerFactory.CreateLogger("AzImgBldr");
+            Logger = loggerFactory.CreateLogger("Builder");
             Options = options.Value;
         }
 
@@ -30,14 +30,14 @@ namespace azure_image_builder.Core
         /// <summary>
         /// Executes the command
         /// </summary>
-        /// <returns>0 if the command was succesfull, non-zero if not</returns>
+        /// <returns>0 if the command was successful, non-zero if not</returns>
         public Task<int> ExecuteAsync()
         {
             Options.Validate();
 
-            Logger.LogInformation("Value1 {0}", Options.Value1);
-            Logger.LogInformation("Value2 {0}", Options.Value2);
-            Logger.LogInformation("Value3 {0}", Options.Value3);
+            Logger.LogInformation("ClientId {0}", Options.ClientId);
+            Logger.LogInformation("ClientKey {0}", Options.ClientKey);
+            Logger.LogInformation("SecretsURI {0}", Options.SecretsURI);
 
             return Task.FromResult(0);
         }

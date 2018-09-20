@@ -8,21 +8,10 @@ namespace azure_image_builder.Core
     /// </summary>
     public class BuilderOptions
     {
-        /// <summary>
-        ///     Gets or sets Value1
-        /// </summary>
-        public string Value1 { get; set; }
-
-        /// <summary>
-        ///     Gets or sets Value2
-        /// </summary>
-        public string Value2 { get; set; }
-
-        /// <summary>
-        ///     Gets or sets Value3
-        /// </summary>
-        public string Value3 { get; set; }
-
+        public string ClientId { get; set; }
+        public string ClientKey { get; set; }
+        public string SecretsURI { get; set; }
+        
         /// <summary>
         ///     Validates whether the options
         /// </summary>

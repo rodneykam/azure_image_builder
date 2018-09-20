@@ -24,8 +24,8 @@ namespace azure_image_builder.Core
         {
             Name = "execute";
             Description = "Creates Azure VM Images";
-            string loglevels = Enum.GetNames(typeof(LogLevel)).Humanize("or");
-            CommandOption verbosity = Option("-l|--verbosity", $"Specifies the verbosity, for example {loglevels}",
+            string logLevels = Enum.GetNames(typeof(LogLevel)).Humanize("or");
+            CommandOption verbosity = Option("-l|--verbosity", $"Specifies the verbosity, for example {logLevels}",
                 CommandOptionType.SingleValue);
             CommandOption vault = Option("-v|--vault", "Specifies the vault URI where secrets are stored",
                 CommandOptionType.SingleValue);
@@ -74,19 +74,7 @@ namespace azure_image_builder.Core
             IConfigurationBuilder configurationBuilder = new ConfigurationBuilder()
                 .AddEnvironmentVariables("azure_image_builder_")
                 .AddUserSecrets(typeof(BuilderCommandLineApplication).Assembly, true)
-                .AddJsonFile(ApplicationProfilePath(), true)
-                .AddInMemoryCollection(new Dictionary<string, string>
-                {
-                    {
-                        "Value1", "a"
-                    },
-                    {
-                        "Value2", "b"
-                    },
-                    {
-                        "Value3", "c"
-                    }
-                });
+                .AddJsonFile(ApplicationProfilePath(), true);
 
             if (!string.IsNullOrWhiteSpace(vault) || !string.IsNullOrWhiteSpace(clientId) ||
                 !string.IsNullOrWhiteSpace(clientSecret))
