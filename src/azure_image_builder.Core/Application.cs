@@ -14,9 +14,9 @@ namespace azure_image_builder.Core
         /// <inheritdoc />
         public Application(bool throwOnUnexpectedArg = true) : base(throwOnUnexpectedArg)
         {
-            Description = "azure_image_builder deploys unicorns and tops it off with snowflakes.";
+            Description = "azure_image_builder creates Azure VM images based on configurations specified in the Image.yaml file.";
             Name = "azure_image_builder";
-            FullName = "azure_image_builder";
+            FullName = "Azure Image Builder Application";
             ExtendedHelpText = Environment.NewLine + $"Run '{Name} help [command]' for more information on a command." +
                                Environment.NewLine;
 
@@ -25,7 +25,7 @@ namespace azure_image_builder.Core
             {
                 Parent = this
             });
-            Commands.Add(new SampleCommandLineApplication
+            Commands.Add(new BuilderCommandLineApplication
             {
                 Parent = this
             });

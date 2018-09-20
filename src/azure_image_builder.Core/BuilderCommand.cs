@@ -10,20 +10,20 @@ namespace azure_image_builder.Core
     /// <summary>
     ///     Represents a sample command
     /// </summary>
-    public class SampleCommand
+    public class BuilderCommand
     {
         /// <summary>
-        /// Creates an instance of <see cref="SampleCommand"/>
+        /// Creates an instance of <see cref="BuilderCommand"/>
         /// </summary>
         /// <param name="loggerFactory">A factory for logging</param>
         /// <param name="options">The options to run the command</param>
-        public SampleCommand(ILoggerFactory loggerFactory, IOptions<SampleOptions> options)
+        public BuilderCommand(ILoggerFactory loggerFactory, IOptions<BuilderOptions> options)
         {
-            Logger = loggerFactory.CreateLogger("Sample");
+            Logger = loggerFactory.CreateLogger("AzImgBldr");
             Options = options.Value;
         }
 
-        private SampleOptions Options { get; }
+        private BuilderOptions Options { get; }
 
         private ILogger Logger { get; }
 
@@ -35,9 +35,9 @@ namespace azure_image_builder.Core
         {
             Options.Validate();
 
-            Logger.LogInformation("Value1 {Value1}", Options.Value1);
-            Logger.LogInformation("Value2 {Value2}", Options.Value2);
-            Logger.LogInformation("Value3 {Value3}", Options.Value3);
+            Logger.LogInformation("Value1 {0}", Options.Value1);
+            Logger.LogInformation("Value2 {0}", Options.Value2);
+            Logger.LogInformation("Value3 {0}", Options.Value3);
 
             return Task.FromResult(0);
         }

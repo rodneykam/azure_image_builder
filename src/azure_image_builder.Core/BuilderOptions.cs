@@ -6,7 +6,7 @@ namespace azure_image_builder.Core
     /// <summary>
     ///     Represents some sample options for the application
     /// </summary>
-    public class SampleOptions
+    public class BuilderOptions
     {
         /// <summary>
         ///     Gets or sets Value1

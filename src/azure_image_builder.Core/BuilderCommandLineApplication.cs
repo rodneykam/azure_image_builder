@@ -17,17 +17,17 @@ namespace azure_image_builder.Core
     /// <summary>
     ///     Represents the a sample command named execute
     /// </summary>
-    public class SampleCommandLineApplication : CommandLineApplication
+    public class BuilderCommandLineApplication : CommandLineApplication
     {
         /// <inheritdoc />
-        public SampleCommandLineApplication(bool throwOnUnexpectedArg = true) : base(throwOnUnexpectedArg)
+        public BuilderCommandLineApplication(bool throwOnUnexpectedArg = true) : base(throwOnUnexpectedArg)
         {
             Name = "execute";
-            Description = "Searches for snowflakes in the sun";
+            Description = "Creates Azure VM Images";
             string loglevels = Enum.GetNames(typeof(LogLevel)).Humanize("or");
             CommandOption verbosity = Option("-l|--verbosity", $"Specifies the verbosity, for example {loglevels}",
                 CommandOptionType.SingleValue);
-            CommandOption vault = Option("-v|--vault", "Specifies the vault where configuration are stored",
+            CommandOption vault = Option("-v|--vault", "Specifies the vault URI where secrets are stored",
                 CommandOptionType.SingleValue);
             CommandOption clientId = Option("-c|--client-id", "Specifies the client id to access the vault",
                 CommandOptionType.SingleValue);
@@ -43,7 +43,8 @@ namespace azure_image_builder.Core
 
             Parent.ShowRootCommandFullNameAndVersion();
 
-            SampleCommand command = ActivatorUtilities.CreateInstance<SampleCommand>(serviceProvider);
+            BuilderCommand command = ActivatorUtilities.CreateInstance<BuilderCommand>(serviceProvider);
+
             return command.ExecuteAsync();
         }
 
@@ -63,7 +64,7 @@ namespace azure_image_builder.Core
                 .AddSingleton(configuration)
                 .AddMemoryCache()
                 .AddOptions()
-                .Configure<SampleOptions>(configuration);
+                .Configure<BuilderOptions>(configuration);
 
             return collection.BuildServiceProvider(true);
         }
@@ -72,18 +73,18 @@ namespace azure_image_builder.Core
         {
             IConfigurationBuilder configurationBuilder = new ConfigurationBuilder()
                 .AddEnvironmentVariables("azure_image_builder_")
-                .AddUserSecrets(typeof(SampleCommandLineApplication).Assembly, true)
+                .AddUserSecrets(typeof(BuilderCommandLineApplication).Assembly, true)
                 .AddJsonFile(ApplicationProfilePath(), true)
                 .AddInMemoryCollection(new Dictionary<string, string>
                 {
                     {
-                        "Value1", "x"
+                        "Value1", "a"
                     },
                     {
-                        "Value2", "y"
+                        "Value2", "b"
                     },
                     {
-                        "Value3", "z"
+                        "Value3", "c"
                     }
                 });
 
