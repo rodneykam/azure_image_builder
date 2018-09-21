@@ -12,6 +12,7 @@ namespace azure_image_builder.Core
         public string clientid { get; set; }
         public string clientkey { get; set; }
         public string tenantid { get; set; }
+        public string datapath { get; set; }
         
         /// <summary>
         ///     Validates whether the options

@@ -41,7 +41,7 @@ namespace azure_image_builder.Core
                     Options.clientid,
                     Options.clientkey,
                     Options.tenantid);
-            var imageConfiguration = new ImageConfiguration();
+            var imageConfiguration = new ImageConfiguration(Options.datapath);
             var info = imageConfiguration.GetImageInfo();
             
             azureManger.CreateVmImage(info);

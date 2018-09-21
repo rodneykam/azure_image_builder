@@ -25,10 +25,16 @@ namespace azure_image_builder.Core
     
     class ImageConfiguration
     {
+        private string DataPath { get; set; }
+        
+        public ImageConfiguration(string datapath)
+        {
+            DataPath = datapath;
+        }
         
         public ImageInfo GetImageInfo()
         {
-            var yamlFile = Path.Combine(Environment.CurrentDirectory, @"App_Data\Image.yaml");
+            var yamlFile = Path.Combine(DataPath, @"Image.yaml");
             TextReader input = new StreamReader(yamlFile);
 
             var deserializer = new DeserializerBuilder()
