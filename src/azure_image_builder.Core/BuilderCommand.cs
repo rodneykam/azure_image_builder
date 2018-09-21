@@ -35,9 +35,10 @@ namespace azure_image_builder.Core
         {
             Options.Validate();
 
-            Logger.LogInformation("ClientId {0}", Options.ClientId);
-            Logger.LogInformation("ClientKey {0}", Options.ClientKey);
-            Logger.LogInformation("SecretsURI {0}", Options.SecretsURI);
+            Logger.LogInformation("SubscriptionId {0}", Options.subscriptionid);
+            Logger.LogInformation("ClientId {0}", Options.clientid);
+            Logger.LogInformation("ClientKey {0}", Options.clientkey);
+            Logger.LogInformation("TenantId {0}", Options.tenantid);
 
             return Task.FromResult(0);
         }

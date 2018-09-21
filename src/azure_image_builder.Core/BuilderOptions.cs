@@ -8,9 +8,10 @@ namespace azure_image_builder.Core
     /// </summary>
     public class BuilderOptions
     {
-        public string ClientId { get; set; }
-        public string ClientKey { get; set; }
-        public string SecretsURI { get; set; }
+        public string subscriptionid { get; set; }
+        public string clientid { get; set; }
+        public string clientkey { get; set; }
+        public string tenantid { get; set; }
         
         /// <summary>
         ///     Validates whether the options
