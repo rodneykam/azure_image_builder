@@ -2,6 +2,7 @@
 // // See LICENSE in the project root for license information.
 
 using System.Threading.Tasks;
+using Microsoft.Azure.Management.Fluent;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -34,12 +35,17 @@ namespace azure_image_builder.Core
         public Task<int> ExecuteAsync()
         {
             Options.Validate();
-
-            Logger.LogInformation("SubscriptionId {0}", Options.subscriptionid);
-            Logger.LogInformation("ClientId {0}", Options.clientid);
-            Logger.LogInformation("ClientKey {0}", Options.clientkey);
-            Logger.LogInformation("TenantId {0}", Options.tenantid);
-
+            
+            var azureManger = new AzureCloudManager(Logger,
+                    Options.subscriptionid,
+                    Options.clientid,
+                    Options.clientkey,
+                    Options.tenantid);
+            var imageConfiguration = new ImageConfiguration();
+            var info = imageConfiguration.GetImageInfo();
+            
+            azureManger.CreateVmImage(info);
+            
             return Task.FromResult(0);
         }
     }
